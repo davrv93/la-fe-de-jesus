@@ -254,12 +254,12 @@
                 {
                     "order":2,
                     "content":"Sí y mucho",
-                    "isCorrect":false
+                    "isCorrect":true
                 },
                 {
                     "order":3,
                     "content":"Algunas veces",
-                    "isCorrect":true
+                    "isCorrect":false
                 }
             ]
         }

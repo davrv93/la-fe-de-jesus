@@ -58,7 +58,7 @@
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="x in suggestions | orderBy:'order'" ng-init="showSuggestion=false">  
-                    {{x.order}}. 
+                    <input type="checkbox">{{x.order}}. 
                     {{x.content}}<br>
                     <span class="mousable" ng-click="showSuggestion=!showSuggestion"><b ng-if="!showSuggestion">
                         Ver texto bíblico: {{x.bible_verse}}</b> 
