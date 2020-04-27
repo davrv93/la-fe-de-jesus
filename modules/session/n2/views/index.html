@@ -1,0 +1,93 @@
+<div class="container" id="content" pdf-save-content="content" >
+    <div class="card">
+        <div class="card-header">
+          <b>Lección 2 : La Santa Biblia</b>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="x in questions | orderBy:'order'" ng-init="show=false">  
+                    {{x.order}}. 
+                    {{x.question}}<br>
+                    <span class="mousable" ng-click="show=!show"><b ng-if="!show">
+                        Ver texto bíblico: {{x.bible_verse}}</b> 
+                        <b ng-if="show">
+                            Ocultar texto bíblico: {{x.bible_verse}}</b> 
+                        <i ng-if="!show"class="fas fa-arrow-down"></i>
+                        <i ng-if="show"class="fas fa-arrow-up"></i>
+                    </span>
+                    <br>
+                    <span ng-if="show">
+                        <ul>
+                            <li ng-repeat="y in x.verse">
+                                {{y.verse}}. {{y.content}}
+                            </li>
+                        </ul>
+                    </span>
+                    <br>
+                    <select class="form-control" id="sel1" ng-model="response"  ng-change="check(x,response)">
+                        <option disabled="disabled" selected value="{{null}}">Elija una opción</option>
+                        <option  value="{{y.isCorrect}}" ng-repeat="y in x.choices | orderBy:y.order">
+                            {{y.content}}
+                        </option>
+                      
+                      </select>
+                      <br>
+                      <span ng-if="x.result == null">
+                          
+                      </span>
+
+                      <span ng-if="x.result == true">
+                        <div class="alert alert-success" role="alert">
+                            Felicidades, contestaste correctamente.
+                          </div>
+                          
+                      </span>
+                      <span ng-if="x.result == false">
+                        <div class="alert alert-danger" role="alert">
+                            La respuesta no es correcta, intenta nuevamente.
+                          </div>
+                      </span>
+                </li>
+        
+              </ul>
+        
+        </div><br>
+        <div class="card-header">
+            <b>¿Qué debo hacer?</b>
+          </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="x in suggestions | orderBy:'order'" ng-init="show=false">  
+                    {{x.order}}. 
+                    {{x.content}}<br>
+                    <span class="mousable" ng-click="show=!show"><b ng-if="!show">
+                        Ver texto bíblico: {{x.bible_verse}}</b> 
+                        <b ng-if="show">
+                            Ocultar texto bíblico: {{x.bible_verse}}</b> 
+                        <i ng-if="!show"class="fas fa-amrrow-down"></i>
+                        <i ng-if="show"class="fas fa-arrow-up"></i>
+                    </span>
+                    <br>
+                    <span ng-if="show">
+                        <ul>
+                            <li ng-repeat="y in x.verse">
+                                {{y.verse}}. {{y.content}}
+                            </li>
+                        </ul>
+                    </span>
+                    <br>
+               
+                   
+
+                      
+                </li>
+        
+              </ul>
+        
+        </div>
+      </div>
+      <button pdf-save-button="content" pdf-name="respuestas.pdf" class="btn">Descargar respuestas en PDF</button>
+   
+</div>
+
+
