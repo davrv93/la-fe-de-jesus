@@ -27,7 +27,7 @@
     "angular-ui-router": "^1.0.25",
     "angularjs-dropdown-tree": "0.0.5",
     "angularjs-toaster": "^3.0.0",
-    "browser-sync": "^2.18.2",
+    "browser-sync": "^2.27.10",
     "del": "^2.2.2",
     "file-saver": "^2.0.2",
     "gulp": "3.9.1",
